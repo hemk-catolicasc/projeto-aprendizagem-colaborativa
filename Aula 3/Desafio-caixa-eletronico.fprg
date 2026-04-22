@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="Desafio-Sistema-de-caixa-eletronico-atm-catolicasc-professor-rafael-descio"/>
+        <attribute name="authors" value="miguel.xavier"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-04-16 09:30:52 "/>
+        <attribute name="created" value="bWlndWVsLnhhdmllcjtKT0lBMDVQQzExOzIwMjYtMDQtMTY7IjA5OjA5OjAzICI7MzE3OA=="/>
+        <attribute name="edited" value="bWlndWVsLnhhdmllcjtKT0lBMDVQQzExOzIwMjYtMDQtMTY7IjA5OjMwOjUyICI7MTszMjg0"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="saldo" type="Real" array="False" size=""/>
+            <declare name="nomeCliente" type="String" array="False" size=""/>
+            <declare name="saque" type="Real" array="False" size=""/>
+            <declare name="status" type="String" array="False" size=""/>
+            <output expression="&quot;Nome do cliente&quot;" newline="True"/>
+            <input variable="nomeCliente"/>
+            <output expression="&quot;Informe o valor do saldo atual de sua conta&quot;" newline="True"/>
+            <input variable="saldo"/>
+            <output expression="&quot;Informe o valor do saque&quot;" newline="True"/>
+            <input variable="saque"/>
+            <if expression="saque &gt; 0">
+                <then>
+                    <if expression="saque &lt;= saldo">
+                        <then>
+                            <assign variable="status" expression="&quot;Aprovado&quot;"/>
+                            <output expression="&quot;Transa&#231;&#227;o aprovado&quot;" newline="True"/>
+                            <output expression="&quot;_______________________&quot;" newline="True"/>
+                            <assign variable="saldo" expression="saldo - saque"/>
+                        </then>
+                        <else>
+                            <assign variable="status" expression="&quot;Negado&quot;"/>
+                            <output expression="&quot;Transa&#231;&#227;o negada&quot;" newline="True"/>
+                            <output expression="&quot;_______________________&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </then>
+                <else>
+                    <assign variable="status" expression="&quot;Erro&quot;"/>
+                    <output expression="&quot;Erro fodase, valor tem que ser positivo&quot;" newline="True"/>
+                    <output expression="&quot;_______________________&quot;" newline="True"/>
+                </else>
+            </if>
+            <output expression="&quot;Nome Cliente: &quot; &amp; nomeCliente" newline="True"/>
+            <output expression="&quot;Valor solicitado: &quot; &amp; saque" newline="True"/>
+            <output expression="&quot;Status da opera&#231;&#227;o: &quot; &amp; status" newline="True"/>
+            <output expression="&quot;Saldo final -&gt; &quot; &amp; saldo" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
